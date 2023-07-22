@@ -57,7 +57,6 @@ body{
     justify-content: center;
     margin-left: 40% !important;
 
-    background-color: aquamarine;
   }
 
   .control-button {
@@ -123,3 +122,8 @@ body{
         width: 25%;
     }
 }
+
+@keyframes moveTarget {
+    from { left: 0; }
+    to { left: 90%; }
+  }
