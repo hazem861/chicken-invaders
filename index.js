@@ -85,4 +85,62 @@ window.addEventListener("keydown", function (e) {
     }
 
     setInterval(moveTarget, 10);
+    var leftButton = document.getElementById("left-button");
+    var rightButton = document.getElementById("right-button");
+    var upButton = document.getElementById("up-button");
+    var downButton = document.getElementById("down-button");
+    var fireButton = document.getElementById("fire-button");
+
+    leftButton.addEventListener("touchstart", function () {
+      rocket -= 50;
+      if (rocket >= 0) {
+        rocketContainer.style.left = rocket + "px";
+      } else {
+        rocket = 0;
+        rocketContainer.style.left = "0px";
+      }
+    });
+
+    rightButton.addEventListener("touchstart", function () {
+      rocket += 50;
+      if (rocket + rocketContainer.offsetWidth <= window.innerWidth) {
+        rocketContainer.style.left = rocket + "px";
+      } else {
+        rocket = window.innerWidth - rocketContainer.offsetWidth;
+        rocketContainer.style.left = rocket + "px";
+      }
+    });
+
+    upButton.addEventListener("touchstart", function () {
+      rocketbottom += 50;
+      if (rocketbottom + rocketContainer.offsetHeight <= window.innerHeight) {
+        rocketContainer.style.bottom = rocketbottom + "px";
+      } else {
+        rocketbottom = window.innerHeight - rocketContainer.offsetHeight;
+        rocketContainer.style.bottom = rocketbottom + "px";
+      }
+    });
+
+    downButton.addEventListener("touchstart", function () {
+      rocketbottom -= 50;
+      if (rocketbottom >= 0) {
+        rocketContainer.style.bottom = rocketbottom + "px";
+      } else {
+        rocketbottom = 0;
+        rocketContainer.style.bottom = "0px";
+      }
+    });
+
+    fireButton.addEventListener("touchstart", function () {
+      if (!isFiring) {
+        isFiring = true;
+        bullet.style.opacity = 1;
+        sound.play();
+        bullet.style.bottom = "800px";
+
+        // الكود الحالي لإطلاق الصاروخ
+        // ...
+      }
+    });
+
   
